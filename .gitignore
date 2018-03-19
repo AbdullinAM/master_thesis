@@ -121,6 +121,7 @@ acs-*.bib
 *.lol
 
 # makeidx
+*.nls
 *.idx
 *.ilg
 *.ind
