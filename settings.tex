@@ -25,12 +25,40 @@
 	frame={single},
 	showstringspaces={false},
 }
+
+
+\lstdefinelanguage{LLVM-asm}
+{
+  morekeywords = {
+    load, store, malloc, alloca, free, getelementptr,
+    add, sub, insertvalue, extractvalue, icmp, call,
+    define, void, global, ret, common, label
+  },
+  sensitive   = false,
+  morecomment = [l]{;}
+}
+
 \lstdefinestyle{java}{
 	breaklines={true},
 	texcl=true,
 	language={Java},
 }
-\input{listings_cyr_hack}
+\lstdefinestyle{c}{
+	breaklines={true},
+	texcl=true,
+	language={C},
+}
+\lstdefinestyle{cpp}{
+	breaklines={true},
+	texcl=true,
+	language={C++},
+}
+\lstdefinestyle{llvm}{
+	breaklines={true},
+	texcl=true,
+	language={LLVM-asm},
+}
+%\input{listings_cyr_hack}
 
 % Настройка стиля оглавления
 % \renewcommand{\tocchapterfont}{}
