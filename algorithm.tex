@@ -899,9 +899,9 @@ $interpretFunction$ на функцию \texttt{main} анализируемой
 каждой инструкции работы с памятью~(\texttt{load, store, gep}) проверить, 
 является ли используемый в ней указатель корректным. Алгоритм поиска ошибок
 некорректного использования указателей приведен на 
-рисунке~\ref{image:oobChecker}. Функция $reportBug$ сохраняет о том, что в
-инструкции $inst$ есть ошибка с кодом <<oob>>~(out of bounds). Данный алгоритм
-необходимо выполнить для всех функций, содержащихся в модуле.
+рисунке~\ref{image:ndChecker}. Функция $reportBug$ сохраняет информацию
+о том, что в инструкции $inst$ есть ошибка с кодом <<nd>>~(null dereference). 
+Данный алгоритм необходимо выполнить для всех функций, содержащихся в модуле.
 \begin{figure}[h!]
 \textbf{Вход:} $f$ --- анализируемая функция
 
@@ -911,13 +911,63 @@ $interpretFunction$ на функцию \texttt{main} анализируемой
         \If{$isMemoryInst(inst)$}
             \State $ptr \gets bb.inputState[inst.getPointerOperand()]$
             \If{$ptr = \top || ptr = \bot$}
-                \State $reportBug(inst, "oob")$
+                \State $reportBug(inst, "nd")$
             \ElsIf{$ptr.locations.contains(nullptr_location)$}
-                \State $reportBug(inst, "oob")$
+                \State $reportBug(inst, "nd")$
             \EndIf
         \EndIf
     \EndFor
 \EndFor
+\end{algorithmic}
+\caption{Алгоритм интерпретации модуля LLVM}
+\label{image:ndChecker}
+\end{figure}
+
+Проверка выхода за границы массива тоже реашется просто: для каждой инструкции
+\texttt{gep} необходимо проверить что смещения в самой инструкции и смещения в 
+указателех не превышают размеров массива, на которые указывает указатель. 
+Алгоритм поиска выхода за границы массива приведен на 
+рисунке~\ref{image:oobChecker}. При обнаружении потенциальной ошибки вызывается
+функция $reportBug$ которая сохраняет информацию о том, что в инструкции 
+\texttt{gep} есть ошибка с кодом <<oob>>~(out of bounds) и алгоритм 
+прерывается возвращая значение \texttt{true}.
+\begin{figure}[h!]
+\begin{algorithmic}[1]
+\Function{oobCheck}{$gep, domain, indices$}
+\State $bb \gets gep.parent$
+\State $curShift \cup subInidices \gets indices$
+\If{$domain = \top || domain = \bot$}
+    \State $reportBug(gep, "oob")$
+    \State \Return \textbf{true}
+\ElsIf{$isPointer(domain)$} 
+    \For{$loc \in domain.locations$}
+        \For{$shift \in loc.shifts$}
+            \State $totalShift \gets curShift + shift$
+            \State $ptrShifts \gets totalShift \cup subIndices$
+            \If{$oobCheck(gep, loc.object, ptrShifts)$}
+                \State $reportBug(gep, "oob")$
+                \State \Return \textbf{true}
+            \EndIf
+        \EndFor
+    \EndFor
+\ElsIf{$isAggregate(domain)$}
+    \If{$curShift.min > domain.length.min$}
+        \State $reportBug(gep, "oob")$
+        \State \Return \textbf{true}
+    \EndIf
+    \If{$curShift.max > domain.length.min$}
+        \State $reportBug(gep, "oob")$
+        \State \Return \textbf{true}
+    \EndIf
+    \For{$i \in [curShift.min, curShift.max]$}
+        \If{$oobCheck(gep, domain.elements[i], subIndices)$}
+            \State $reportBug(gep, "oob")$
+            \State \Return \textbf{true}
+        \EndIf
+    \EndFor
+\EndIf
+\State \Return \textbf{false}    
+\EndFunction
 \end{algorithmic}
 \caption{Алгоритм интерпретации модуля LLVM}
 \label{image:oobChecker}
