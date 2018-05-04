@@ -64,12 +64,11 @@ $(TARGET).pdf: $(TARGET).tex $(TARGETFILES) $(BIBFILE)
 	fi
 	$(PDFLATEX) $(PDFLATEXFLAGS) $^
 
-epstoeps:
-	@$(MAKE) -C fig $@
+figures:
+	@$(MAKE) -C fig
 
-epstopdf:
-	@$(MAKE) -C fig $@
+figures-clean:
+	@$(MAKE) -C fig clean
 
 clean:
 	rm -f $(CLFILES)
-	@$(MAKE) -C fig $@
