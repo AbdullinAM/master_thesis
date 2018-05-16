@@ -111,12 +111,12 @@
   }
   \geometry{
     paper=a5paper,
-    nohead=true,
+    %nohead=true,
     includefoot=true,
-    left=18mm,
-    right=18mm,
-    top=18mm,
-    bottom=18mm,
+    left=30mm,
+    right=10mm,
+    top=20mm,
+    bottom=20mm,
     footskip=10mm
   }
   \setlength{\fieldhshift}{5cm}
@@ -130,10 +130,10 @@
     paper=a4paper,
     nohead=true,
     includefoot=true,
-    left=25mm,
-    right=25mm,
-    top=25mm,
-    bottom=25mm,
+    left=30mm,
+    right=10mm,
+    top=20mm,
+    bottom=20mm,
     footskip=15mm
   }
   \setlength{\fieldhshift}{8.5cm}
@@ -407,8 +407,8 @@
 
 \clearpage
 
-\institution{{\cyr\CYRS\cyra\cyrn\cyrk\cyrt-\CYRP\cyre\cyrt\cyre\cyrr\cyrb\cyru\cyrr\cyrg\cyrs\cyrk\cyri\cyrishrt\ \cyrp\cyro\cyrl\cyri\cyrt\cyre\cyrh\cyrn\cyri\cyrch\cyre\cyrs\cyrk\cyri\cyrishrt\ \cyru\cyrn\cyri\cyrv\cyre\cyrr\cyrs\cyri\cyrt\cyre\cyrt\
-\CYRP\cyre\cyrt\cyrr\cyra\
+\institution{{\cyr\CYRS\cyra\cyrn\cyrk\cyrt-\CYRP\cyre\cyrt\cyre\cyrr\cyrb\cyru\cyrr\cyrg\cyrs\cyrk\cyri\cyrishrt\ \cyrp\cyro\cyrl\cyri\cyrt\cyre\cyrh\cyrn\cyri\cyrch\cyre\cyrs\cyrk\cyri\cyrishrt\ \cyru\cyrn\cyri\cyrv\cyre\cyrr\cyrs\cyri\cyrt\cyre\cyrt\ 
+\CYRP\cyre\cyrt\cyrr\cyra\ 
 \CYRV\cyre\cyrl\cyri\cyrk\cyro\cyrg\cyro}}
 \faculty{{\cyr\CYRI\cyrn\cyrs\cyrt\cyri\cyrt\cyru\cyrt\ %
   \cyrk\cyro\cyrm\cyrp\cyrsftsn\cyryu\cyrt\cyre\cyrr\cyrn\cyrery\cyrh\ %
@@ -476,13 +476,19 @@
 \setcounter{topnumber}{64}
 \setcounter{bottomnumber}{64}
 
+\DeclareCaptionFormat{hfillstart}{\hfill#1#2#3\par}
 \captionsetup{singlelinecheck=false}
 \captionsetup[figure]{%
   labelsep=period,
   justification=centering}
-\captionsetup[table]{%
-  labelsep=period,
-  justification=raggedleft}
+% \captionsetup[table]{%
+%   labelsep=period,
+%   justification=raggedleft}
+\captionsetup[table]{ 
+    format=hfillstart,
+    labelsep=newline,
+    justification=centering,
+    skip=-10pt}
 \floatname{figure}{\CYRR\cyri\cyrs\cyru\cyrn\cyro\cyrk}
 \floatname{table}{\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}
 
@@ -498,13 +504,17 @@
 \renewcommand{\sectionmark}[1]{ \markboth{#1}{} }
 
 \fancyhf{}
-\fancyfoot[LE,RO]{\thepage}
+\fancyhead[LE,RO]{\thepage}
+% \fancyfoot[LE,RO]{\thepage}
+% \fancyhead[R]{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
 \fancypagestyle{plain}{
   \fancyhf{}
-  \fancyfoot[LE,RO]{\thepage}
+  \fancyhead[LE,RO]{\thepage}
+%  \fancyfoot[LE,RO]{\thepage}
+%  \fancyhead[R]{\thepage}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
 }

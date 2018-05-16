@@ -8,6 +8,11 @@ TARGETFILES?=	preamble.tex \
 		abstract.tex \
 		nomenclature.tex \
 		introduction.tex \
+		chapter1.tex \
+		chapter2.tex \
+		chapter3.tex \
+		chapter4.tex \
+		chapter5.tex \
 		conclusion.tex \
 		appendix01.tex
 
