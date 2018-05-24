@@ -69,7 +69,7 @@
   \masterproglabel\ \@masterprognum\ --\ \@masterprog%
 \end{flushleft}
 %
-\vskip10ex
+\vskip5ex
 \begin{tabbing}
   \studentlabel\=\makebox[\fieldhshift][l]{\hrulefill\ \@author}\\[\sixthskip]
   \ifx\@sa\empty\else\diplomafield{sa}\\[\sixthskip]\fi

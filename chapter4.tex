@@ -17,7 +17,7 @@
 объединения абстрактной интерпретации и метода ограниченной проверки моделей.
 Высокоуровневая схема работы прототипа приведена на 
 рисунке~\ref{image:NewBorealisOverview}. Структура модулей разрабатываемого
-прототипа приведена ниже(см. рисунок~\ref{image:prototypeArchitecture}).
+прототипа приведена ниже~(рисунок~\ref{image:prototypeArchitecture}).
 \begin{figure}[h!]
 \center{\includegraphics[width=0.8\linewidth]{NewBorealisOverview}}
 \caption{Архитектура разрабатываемого прототипа}
@@ -41,9 +41,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 В разработку модуля абстрактной интерпретации для системы Borealis входит 
 написание новых классов для анализа кода, а также расширение функциональности 
-уже существующих классов. В ходе работы были изменены несколько компонентов 
-системы и было реализовано несколько новых компонентов~(см. 
-рисунок~\ref{image:prototypeArchitecture}). Компонент \texttt{Interpreter}
+уже существующих классов. В ходе работы были изменены некоторые компоненты 
+системы и было реализовано несколько новых компонентов~(рисунок
+~\ref{image:prototypeArchitecture}). Компонент \texttt{Interpreter}
 содержит реализацию всех классов, связанных с абстрактной интерпретацией:
 абстрактных доменов, состояний, интерпретаторов и  т.д. Компонент \texttt{Passes}
 содержит проходы LLVM, которые выполняют анализ и модификацию исходного кода.
@@ -57,9 +57,9 @@
 \texttt{Interpreter} и \texttt{OneForOneInterpreter}. 
 
 \texttt{Interpreter} --- класс, который выполняет абстрактную интерпретацию 
-модуля LLVM~(см. рисунок~\ref{image:irInterpretation}). Он наследуется от класса
+модуля LLVM~(рисунок~\ref{image:irInterpretation}). Он наследуется от класса
 \texttt{llvm::InstVisitor}, который реализует шаблон проектирования 
-\texttt{Visitor}~\cite{visitor} для инструкций LLVM.
+Visitor~\cite{visitor} для инструкций LLVM.
 
 Класс \texttt{OneForOneInterpreter} содержит реализацию метода
 \texttt{bool check(PredicateState::Ptr state, PredicateState::Ptr query, const 
@@ -73,9 +73,9 @@ DefectInfo\& di)}, который выполняет интерпретацию 
 следующие классы:
     \begin{itemize}
     \item \texttt{NullDereferenceChecker} --- класс, для поиска ошибок 
-    некорректного разыменовывания указателей~(см. рисунок~\ref{image:ndChecker});
+    некорректного разыменовывания указателей~(рисунок~\ref{image:ndChecker});
     \item \texttt{OutOfBoundsChecker} --- класс, для поиска ошибок выхода за 
-    границы массива~(см. рисунок~\ref{image:oobChecker});
+    границы массива~(рисунок~\ref{image:oobChecker});
     \item \texttt{OutOfBoundsVisitor} --- вспомогательный класс, который 
     выполняет рекурсивный обход абстрактных доменов для поиска выхода за границы
     массива.
@@ -89,7 +89,7 @@ DefectInfo\& di)}, который выполняет интерпретацию 
     \item \texttt{IntegerIntervalDomain} --- реализация интервального домена для 
     целых чисел;
     \item \texttt{FloatIntervalDomain} --- реализация интервального домена для 
-    числе с плавающей точкой;
+    чисел с плавающей точкой;
     \item \texttt{FunctionDomain} --- реализация домена функций;
     \item \texttt{PointerDomain} --- реализация домена указателей;
     \item \texttt{IntervalWidening} --- реализация операторов widening для 
@@ -132,7 +132,7 @@ DefectInfo\& di)}, который выполняет интерпретацию 
     \item \texttt{ConditionSplitter} --- вспомогательный класс, который 
     выполняет <<разделение>> абстрактных доменов при условных переходах.
     \end{itemize}
-\item \texttt{PredicateState}--- в данном пакете содержатся реализации 
+\item \texttt{PredicateState} --- в данном пакете содержатся реализации 
 различных вспомогательных классов, используемых при интерпретации PS. Он 
 содержит в себе два класса:
     \begin{itemize}
