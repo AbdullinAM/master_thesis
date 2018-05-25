@@ -700,7 +700,7 @@
 % \providecommand\tocsubsectionindent{4.1em}
 % \providecommand\tocsubsectionnameindent{3.5em}
 \providecommand\tocsubsectionindent{0.0em}
-\providecommand\tocsubsectionnameindent{2.5em}
+\providecommand\tocsubsectionnameindent{2.8em}
 
 \providecommand\subsectionfont{\normalfont\normalsize\bfseries}
 
