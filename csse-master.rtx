@@ -83,7 +83,8 @@
 \end{tabbing}
 \vfill
 \begin{center}
-  {\@city\cdsep\@date}
+  \@city\\
+  \@date
 \end{center}
 \normalfont\clearpage
 }\fi
@@ -162,7 +163,8 @@
 \end{flushright}
 \vfill
 \begin{center}
-  {\@city\cdsep\@date}
+  \@city\\
+  \@date
 \end{center}
 \normalfont\clearpage
 %

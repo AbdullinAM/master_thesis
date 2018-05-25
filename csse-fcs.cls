@@ -407,8 +407,8 @@
 
 \clearpage
 
-\institution{{\cyr\CYRS\cyra\cyrn\cyrk\cyrt-\CYRP\cyre\cyrt\cyre\cyrr\cyrb\cyru\cyrr\cyrg\cyrs\cyrk\cyri\cyrishrt\ \cyrp\cyro\cyrl\cyri\cyrt\cyre\cyrh\cyrn\cyri\cyrch\cyre\cyrs\cyrk\cyri\cyrishrt\ \cyru\cyrn\cyri\cyrv\cyre\cyrr\cyrs\cyri\cyrt\cyre\cyrt\ 
-\CYRP\cyre\cyrt\cyrr\cyra\ 
+\institution{{\cyr\CYRS\cyra\cyrn\cyrk\cyrt-\CYRP\cyre\cyrt\cyre\cyrr\cyrb\cyru\cyrr\cyrg\cyrs\cyrk\cyri\cyrishrt\ \cyrp\cyro\cyrl\cyri\cyrt\cyre\cyrh\cyrn\cyri\cyrch\cyre\cyrs\cyrk\cyri\cyrishrt\ \cyru\cyrn\cyri\cyrv\cyre\cyrr\cyrs\cyri\cyrt\cyre\cyrt\
+\CYRP\cyre\cyrt\cyrr\cyra\
 \CYRV\cyre\cyrl\cyri\cyrk\cyro\cyrg\cyro}}
 \faculty{{\cyr\CYRI\cyrn\cyrs\cyrt\cyri\cyrt\cyru\cyrt\ %
   \cyrk\cyro\cyrm\cyrp\cyrsftsn\cyryu\cyrt\cyre\cyrr\cyrn\cyrery\cyrh\ %
@@ -429,7 +429,7 @@
   \renewcommand{\conclusionname}{\CYRZ\CYRA\CYRK\CYRL\CYRYU\CYRCH\CYRE\CYRN\CYRI\CYRE}
   \renewcommand{\bibname}{\CYRS\CYRP\CYRI\CYRS\CYRO\CYRK\ \CYRI\CYRS\CYRP\CYRO\CYRL\CYRSFTSN\CYRZ\CYRO\CYRV\CYRA\CYRN\CYRN\CYRERY\CYRH\ \CYRI\CYRS\CYRT\CYRO\CYRCH\CYRN\CYRI\CYRK\CYRO\CYRV}
   \renewcommand{\appendixname}{\CYRP\CYRR\CYRI\CYRL\CYRO\CYRZH\CYRE\CYRN\CYRI\CYRE}
-  \renewcommand{\figurename}{\CYRR\cyri\cyrs\cyru\cyrn\cyro\cyrk}
+  \renewcommand{\figurename}{\CYRR\cyri\cyrs.}
   \renewcommand{\tablename}{\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}
 }
 
@@ -489,7 +489,8 @@
     labelsep=newline,
     justification=centering,
     skip=-10pt}
-\floatname{figure}{\CYRR\cyri\cyrs\cyru\cyrn\cyro\cyrk}
+% \floatname{figure}{\CYRR\cyri\cyrs\cyru\cyrn\cyro\cyrk}
+\floatname{figure}{\CYRR\cyri\cyrs}
 \floatname{table}{\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}
 
 % Workaround for disser-1.2.0 `headcenter` pagestyle options
