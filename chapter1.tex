@@ -117,7 +117,7 @@ BMC основан на методе проверки моделей: основ
 \begin{enumerate}
 \item для анализируемой программы строится граф потока управления~(control
 flow graph, CFG)~\cite{cfg} в форме статического однократного присваивания
-~(static single assignment)~\cite{ssa};
+~(static single assignment, SSA)~\cite{ssa};
 
 \item все циклы раскручиваются на предопределенную глубину $k$;
 
@@ -213,10 +213,10 @@ AI), а значит должен обладать следующими свой
 \item является частично упорядоченным множеством $D$;
 \item имеет верхнюю грань $\top, \forall x \in D: x \le \top$;
 \item имеет нижнюю грань $\bot, \forall x \in D: \bot \le x$;
-\item определена операция объединения $\vee$, такая что:\\ $\vee: \forall x, y \in D: x \le (x \vee y), y \le (x \vee y)$;
+\item определена операция объединения $\vee$, такая что:\\ $\forall x, y \in D: x \le (x \vee y), y \le (x \vee y)$;
 
 \item определена операция пересечения $\wedge$, такая что:\\
-$\wedge: \forall x, y \in D: (x \wedge y) \le x, (x \wedge y) \le y$.
+$\forall x, y \in D: (x \wedge y) \le x, (x \wedge y) \le y$.
 \end{itemize}
 
 Каждому типу данных исходной программы ставится в соответствие абстрактный
