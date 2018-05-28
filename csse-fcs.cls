@@ -267,13 +267,14 @@
 }\keywordsen{}
 
 \newcommand\@makeabstract[4]{%
-  \clearpage%
-  \thispagestyle{empty}%
+  %\clearpage%
+  %\thispagestyle{empty}%
   
   \@makeschapterhead{#1}%
   \@afterheading%
   %
   \begin{flushleft}%
+  \vskip-3ex
   ~~~~~ #2%
   \end{flushleft}%
   %
@@ -282,6 +283,7 @@
   \end{flushleft}
   %
   {%
+    \vskip-1ex
     \hskip\parindent%
     #4%
   }

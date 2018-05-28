@@ -59,7 +59,8 @@
 \texttt{Interpreter} --- класс, который выполняет абстрактную интерпретацию 
 модуля LLVM~(рисунок~\ref{image:irInterpretation}). Он наследуется от класса
 \texttt{llvm::InstVisitor}, который реализует шаблон проектирования 
-Visitor~\cite{visitor} для инструкций LLVM.
+Visitor~\cite{visitor} для инструкций LLVM. Исходный код класса 
+\texttt{Interpreter} приведен в приложении.
 
 Класс \texttt{OneForOneInterpreter} содержит реализацию метода
 \texttt{bool check(PredicateState::Ptr state, PredicateState::Ptr query, const 
